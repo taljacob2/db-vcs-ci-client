@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "#######################"
-echo "Backuping DB..."
+echo "Exporting DB..."
 sleep 2
-echo "Backup Successful!"
+echo "Export Successful!"
 echo "#######################"
