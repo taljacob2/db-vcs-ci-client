@@ -23,7 +23,6 @@ else
     echo $LOG_TITLE "Received .bak File Successfully!"
     echo $LOG_TITLE "Adding The .bak File To Your Commit..."
     git add git-config-setup/db-vcs-ci/db.bak && \ 
-    git commit --amend --no-edit --no-verify
     echo $LOG_TITLE "Finished Adding The .bak File To Your Commit."
 fi
 
