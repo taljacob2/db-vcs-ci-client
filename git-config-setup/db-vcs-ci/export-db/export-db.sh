@@ -30,6 +30,6 @@ echo
 
 # Create a dummy file for indication that the "pre-commit" process has finished,
 # and the files were not commited yet.
-touch .commit
+touch git-config-setup/db-vcs-ci/export-db/.commit
 
 exit
