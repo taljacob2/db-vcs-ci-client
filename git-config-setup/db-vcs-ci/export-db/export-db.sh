@@ -5,7 +5,7 @@ LOG_BOUNDARY="#######################"
 
 echo
 echo $LOG_BOUNDARY
-echo $LOG_TITLE "Exporting DB..."
+echo $LOG_TITLE "Attempting To Export DB From Server..."
 echo
 
 status_code=$(curl -k -X 'POST' \
@@ -18,12 +18,13 @@ status_code=$(curl -k -X 'POST' \
 echo
 
 if [[ "$status_code" -ne 200 ]] ; then
-  echo $LOG_TITLE "Encountered an error."
+  echo $LOG_TITLE "Encountered An Error."
 else
-    echo $LOG_TITLE "Received .bak file successfully!"
-    echo $LOG_TITLE "Adding the .bak file to your commit..."
+    echo $LOG_TITLE "Received .bak File Successfully!"
+    echo $LOG_TITLE "Adding The .bak File To Your Commit..."
     git add git-config-setup/db-vcs-ci/db.bak
-    echo $LOG_TITLE "Finished adding the .bak file to your commit."
+    git commit --amend --no-edit --no-verify
+    echo $LOG_TITLE "Finished Adding The .bak File To Your Commit."
 fi
 
 echo

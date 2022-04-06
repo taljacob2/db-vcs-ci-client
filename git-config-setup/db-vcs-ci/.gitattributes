@@ -1,0 +1,2 @@
+# Override our database when having conflicts.
+*.bak merge=keepTheirs
