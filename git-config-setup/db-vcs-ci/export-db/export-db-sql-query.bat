@@ -1,0 +1,1 @@
+sqlcmd -S (localdb)\Local -q "SELECT * FROM [Klil-Local-Tal].[dbo].[umbracoUser]"
