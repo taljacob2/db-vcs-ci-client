@@ -1,4 +1,4 @@
-# pre-commit-hook-ci-client
+# db-vcs-ci-client
 
 ## Installation
 
