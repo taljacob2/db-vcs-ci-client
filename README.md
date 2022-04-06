@@ -6,12 +6,12 @@
 
 Open *cmd.exe* and run:
 ```
-git-config-setup-for-windows.bat
+git-config-setup/git-config-setup-for-windows.bat
 ```
 
 ### On Linux:
 
 Open *terminal* and run:
 ```
-git-config-setup-for-linux.sh
+./git-config-setup/git-config-setup-for-linux.sh
 ```
