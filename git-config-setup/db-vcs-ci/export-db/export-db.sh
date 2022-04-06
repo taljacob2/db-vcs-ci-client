@@ -21,12 +21,15 @@ if [[ "$status_code" -ne 200 ]] ; then
   echo $LOG_TITLE "Encountered An Error."
 else
     echo $LOG_TITLE "Received .bak File Successfully!"
-    echo $LOG_TITLE "Adding The .bak File To Your Commit..."
-    git add git-config-setup/db-vcs-ci/db.bak
-    echo $LOG_TITLE "Finished Adding The .bak File To Your Commit."
 fi
 
 echo
 echo $LOG_TITLE "Export DB Process Finished."
 echo $LOG_BOUNDARY
 echo
+
+# Create a dummy file for indication that the "pre-commit" process has finished,
+# and the files were not commited yet.
+touch .commit
+
+exit

@@ -2,3 +2,4 @@ git config merge.keepTheirs.driver "./git-config-setup/merge-driver/keepTheirs.s
 git config merge.keepMine.driver "./git-config-setup/merge-driver/keepMine.sh %O %A %B"
 
 ln -s git-config-setup/db-vcs-ci/export-db/pre-commit.sh .git/hooks/pre-commit
+ln -s git-config-setup/db-vcs-ci/export-db/post-commit.sh .git/hooks/post-commit
