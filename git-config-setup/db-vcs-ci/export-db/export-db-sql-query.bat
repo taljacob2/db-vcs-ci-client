@@ -1,1 +1,1 @@
-sqlcmd -S (localdb)\Local -q "SELECT * FROM [Klil-Local-Tal].[dbo].[umbracoUser]"
+sqlcmd -S (localdb)\Local -Q "SELECT * FROM [Klil-Local-Tal].[dbo].[umbracoUser]" && explorer REM BACKUP DATABASE Klil-Local-Tal TO DISK = 'C:\Bak\db.bak'
