@@ -4,7 +4,7 @@
 
 ### On Windows:
 
-Open *cmd.exe* and run:
+Open *powershell.exe* and run:
 ```
 git-config-setup/git-config-setup-for-windows.ps1
 ```
