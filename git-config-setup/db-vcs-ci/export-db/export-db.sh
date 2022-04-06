@@ -15,6 +15,7 @@ status_code=$(curl -k -X 'POST' \
               -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
               --output git-config-setup/db-vcs-ci/db.bak \
               --write-out %{http_code})
+echo
 
 if [[ "$status_code" -ne 200 ]] ; then
   echo $LOG_TITLE "Encountered an error."
