@@ -1,6 +1,6 @@
 #!/bin/sh
 git stash -q --keep-index
-./backup-db.sh
+./git-config-setup/db-vcs-ci/backup-db.sh
 RESULT=$?
 git stash pop -q
 [ $RESULT -ne 0 ] && exit 1

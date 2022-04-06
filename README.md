@@ -6,7 +6,7 @@
 
 Open *cmd.exe* and run:
 ```
-git-config-setup/git-config-setup-for-windows.bat
+git-config-setup/git-config-setup-for-windows.ps1
 ```
 
 ### On Linux:
