@@ -9,10 +9,11 @@ echo $LOG_TITLE "Exporting DB..."
 echo
 
 curl -k -X 'POST' \
-  'https://localhost:7179/api/execute-a-export-db-sql' \
+  'https://localhost:7179/api/execute-a-export-db-sql?pathToExportBakInServer=C:\Bak\db.bak' \
   -H 'accept: */*' \
   -H 'Content-Type: application/sql' \
-  -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat
+  -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
+  --output git-config-setup/db-vcs-ci/db.bak
 
 echo
 echo $LOG_TITLE "Export DB Process Finished."
