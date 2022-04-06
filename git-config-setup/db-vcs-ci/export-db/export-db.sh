@@ -22,7 +22,7 @@ if [[ "$status_code" -ne 200 ]] ; then
 else
     echo $LOG_TITLE "Received .bak File Successfully!"
     echo $LOG_TITLE "Adding The .bak File To Your Commit..."
-    git add git-config-setup/db-vcs-ci/db.bak && \ 
+    git add git-config-setup/db-vcs-ci/db.bak
     echo $LOG_TITLE "Finished Adding The .bak File To Your Commit."
 fi
 
