@@ -31,12 +31,19 @@ echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
-curl -k -X 'POST' \
+HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
                 -H 'accept: */*' \
                 -H 'Content-Type: application/sql' \
                 -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
-                --write-out "HTTPSTATUS:%{http_code}"
+                --write-out "HTTPSTATUS:%{http_code}")
+
+HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
+HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
+
+echo
+
+echo $HTTP_BODY
 
 
 exit
