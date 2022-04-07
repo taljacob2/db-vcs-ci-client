@@ -52,11 +52,7 @@ else
 
     URL="$SERVER/api/download-file?filePathInServer=$WORKING_DIRECTORY_IN_SERVER/$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY&mimeType=application/octet-stream"
 
-    HTTP_RESPONSE=$(curl -k -X 'GET' \
-                    -H 'accept: */*' \
-                    $URL \
-                    -o $EXPORTED_DB_BAK_PATH_IN_CLIENT \
-                    --w %{http_code})
+
 
     HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
 
