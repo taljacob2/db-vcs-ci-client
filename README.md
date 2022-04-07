@@ -16,7 +16,6 @@ Open *terminal* and run:
 ./git-config-setup/git-config-setup-for-linux.sh
 ```
 
-
 ## NOTE
 
 The backup runs as a "pre-commit" hook.
