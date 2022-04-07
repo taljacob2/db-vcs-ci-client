@@ -16,8 +16,8 @@ SERVER_LOG_HALF_BOUNDARY="###########"
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY"
 URL=\'"$URL"\'
 
-BAT_FILE=@git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat $COMPUTER_NAME $INSTANCE_NAME $DB_NAME $WORKING_DIRECTORY
-BAT_FILE=\'"$BAT_FILE"\'
+BAT_FILE="@git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat $COMPUTER_NAME $INSTANCE_NAME $DB_NAME $WORKING_DIRECTORY"
+echo $BAT_FILE
 
 echo
 echo $LOG_BOUNDARY
