@@ -36,7 +36,7 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 -H 'accept: */*' \
                 -H 'Content-Type: application/sql' \
                 -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
-                --write-out "HTTPSTATUS:%{http_code}"
+                --write-out "HTTPSTATUS:%{http_code}" \
                 -o http-response.txt)
 
 HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
