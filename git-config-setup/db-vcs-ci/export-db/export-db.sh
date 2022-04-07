@@ -22,6 +22,7 @@ echo $LOG_TITLE "Attempting To Create .bak File In The Server..."
 
 echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
+
 echo
 curl -k -X 'POST' \
             'https://localhost:7179/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY' \
