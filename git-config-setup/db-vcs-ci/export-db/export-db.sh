@@ -36,13 +36,9 @@ curl -k -X 'POST' \
               -H 'accept: */*' \
               -H 'Content-Type: application/sql' \
               -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
-              --write-out \n%{http_code}
+              -w \n%{http_code}
 
 echo
-
-echo $status_code
-echo $status_code
-echo $status_code
 
 if [[ "$status_code" -ne 200 ]] ; then
     echo $LOG_TITLE "Encountered An Error."
