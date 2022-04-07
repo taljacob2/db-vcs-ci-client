@@ -16,6 +16,9 @@ SERVER_LOG_HALF_BOUNDARY="###########"
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY"
 URL=\'"$URL"\'
 
+BAT_FILE=@git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat $COMPUTER_NAME $INSTANCE_NAME $DB_NAME $WORKING_DIRECTORY
+BAT_FILE=\'"$BAT_FILE"\'
+
 echo
 echo $LOG_BOUNDARY
 echo $LOG_TITLE "Attempting To Export DB From Server..."
@@ -29,7 +32,7 @@ curl -k -X 'POST' \
             $URL \
             -H 'accept: */*' \
             -H 'Content-Type: application/sql' \
-            -d "@git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat $COMPUTER_NAME $INSTANCE_NAME $DB_NAME $WORKING_DIRECTORY"
+            -d $BAT_FILE
 echo
 
 echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
