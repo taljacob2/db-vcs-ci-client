@@ -56,7 +56,7 @@ else
                     -H 'accept: */*' \
                     $URL \
                     -o $EXPORTED_DB_BAK_PATH_IN_CLIENT \
-                    --w %{http_code})
+                    -w %{http_code})
 
     HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
 
