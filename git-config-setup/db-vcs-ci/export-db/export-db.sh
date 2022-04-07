@@ -40,7 +40,7 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
 
 HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
 
-HTTP_BODY=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.$HTTP_STATUS')
+HTTP_BODY=$(echo $HTTP_RESPONSE)
 
 echo $HTTP_BODY
 
