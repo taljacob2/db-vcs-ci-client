@@ -21,26 +21,27 @@ echo
 if [[ "$status_code" -ne 200 ]] ; then
   echo $LOG_TITLE "Encountered An Error."
 else
-    echo $LOG_TITLE "Successfully Created .bak File In The Server!"
-    echo $LOG_TITLE "Attempting To Download .bak File From Server..."
-
     echo
-    status_code=$(curl -k -X 'GET' \
-                  -H 'accept: */*' \
-                  'https://localhost:7179/api/download-file?filePathInServer=C%3A%5CBak%5Chello.txt&mimeType=text%2Fplain' \
-                  --output git-config-setup/db-vcs-ci/db.bak \
-                  --write-out %{http_code})
-    echo
+    # echo $LOG_TITLE "Successfully Created .bak File In The Server!"
+    # echo $LOG_TITLE "Attempting To Download .bak File From Server..."
 
-    if [[ "$status_code" -ne 200 ]] ; then
-      echo $LOG_TITLE "Encountered An Error."
-    else
-        echo $LOG_TITLE "Received .bak File Successfully!"
+    # echo
+    # status_code=$(curl -k -X 'GET' \
+    #               -H 'accept: */*' \
+    #               'https://localhost:7179/api/download-file?filePathInServer=C%3A%5CBak%5Chello.txt&mimeType=text%2Fplain' \
+    #               --output git-config-setup/db-vcs-ci/db.bak \
+    #               --write-out %{http_code})
+    # echo
 
-        # Create a dummy file for indication that the "pre-commit" process has finished,
-        # and the files were not commited yet.
-        touch git-config-setup/db-vcs-ci/export-db/.commit
-    fi
+    # if [[ "$status_code" -ne 200 ]] ; then
+    #   echo $LOG_TITLE "Encountered An Error."
+    # else
+    #     echo $LOG_TITLE "Received .bak File Successfully!"
+
+    #     # Create a dummy file for indication that the "pre-commit" process has finished,
+    #     # and the files were not commited yet.
+    #     touch git-config-setup/db-vcs-ci/export-db/.commit
+    # fi
 fi
 
 
