@@ -14,7 +14,7 @@ LOG_BOUNDARY="################################"
 SERVER_LOG_HALF_BOUNDARY="###########"
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY"
-URL=\'"$URL"\'
+URL="$URL"
 
 echo \'"$URL"\'
 
