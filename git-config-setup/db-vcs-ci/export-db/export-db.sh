@@ -11,7 +11,7 @@ echo $LOG_TITLE "Attempting To Create .bak File In The Server..."
 
 echo
 curl -k -X 'POST' \
-            'https://localhost:7179/api/execute-a-export-db-sql?pathToExportBakInServer=C:\Bak\db.bak' \
+            'https://localhost:7179/api/execute-cmd-command?workingDirectory=C:\Bak' \
             -H 'accept: */*' \
             -H 'Content-Type: application/sql' \
             -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat
