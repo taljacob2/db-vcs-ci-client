@@ -9,6 +9,17 @@ SERVER="https://localhost:7179"
 
 # -----------------------------------------------------------------------------
 
+function surroundWithSingleQuotes {
+  args
+    : @required string sourceStringToSurround
+
+  surroundWithSingleQuotes_RETURN_VALUE=\'"${sourceStringToSurround}"\'
+  echo $surroundWithSingleQuotes_RETURN_VALUE
+}
+
+# -----------------------------------------------------------------------------
+
+
 LOG_TITLE="### export-db.sh ###: "
 LOG_BOUNDARY="################################"
 SERVER_LOG_HALF_BOUNDARY="###########"
