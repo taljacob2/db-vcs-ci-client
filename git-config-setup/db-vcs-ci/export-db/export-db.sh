@@ -38,11 +38,11 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
                 --write-out %{http_code})
 
-HTTP_BODY=$(echo $HTTP_RESPONSE | sed -E 's/\[0-9]{3}$//')
+HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
+
+HTTP_BODY=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.$HTTP_STATUS')
 
 echo $HTTP_BODY
-
-HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
 
 echo
 
