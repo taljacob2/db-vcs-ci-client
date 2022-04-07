@@ -1,2 +1,1 @@
-echo ""
-echo hello all!
+echo "" && echo hello all!
