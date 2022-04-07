@@ -24,7 +24,7 @@ echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_
 echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY"
-URL=\'"$URL"\'
+
 
 curl -k -X 'POST' \
             $URL \
