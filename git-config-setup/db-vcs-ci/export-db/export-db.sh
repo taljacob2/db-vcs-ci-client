@@ -31,12 +31,12 @@ echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
-status_code=$(curl -k -X 'POST' \
+curl -k -X 'POST' \
               $URL \
               -H 'accept: */*' \
               -H 'Content-Type: application/sql' \
               -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
-              --write-out %{http_code})
+              --write-out \n%{http_code}
 
 echo
 
