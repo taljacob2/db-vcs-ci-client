@@ -32,21 +32,15 @@ echo
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
 HTTP_RESPONSE=$(curl -k -X 'POST' \
-              $URL \
-              -H 'accept: */*' \
-              -H 'Content-Type: application/sql' \
-              -w %{http_code} \
-              -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat)
+                $URL \
+                -H 'accept: */*' \
+                -H 'Content-Type: application/sql' \
+                -w %{http_code} \
+                -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat)
 
 HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
 
 echo
-echo $HTTP_STATUS
-echo "----------------------------------------"
-echo $HTTP_STATUS
-echo $HTTP_STATUS
-echo "----------------------------------------"
-echo $HTTP_STATUS
 
 if [[ "$status_code" -ne 200 ]] ; then
     echo $LOG_TITLE "Encountered An Error."
@@ -58,11 +52,13 @@ else
 
     URL="$SERVER/api/download-file?filePathInServer=$WORKING_DIRECTORY_IN_SERVER/$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY&mimeType=application/octet-stream"
 
-    curl -k -X 'GET' \
-                  -H 'accept: */*' \
-                  $URL \
-                  --output git-config-setup/db-vcs-ci/db.bak \
-                  --write-out %{http_code}
+    HTTP_RESPONSE=$(curl -k -X 'GET' \
+                    -H 'accept: */*' \
+                    $URL \
+                    -o $EXPORTED_DB_BAK_PATH_IN_CLIENT \
+                    --w %{http_code})
+
+    HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
 
     echo
 
