@@ -43,7 +43,7 @@ HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
 
 echo
 
-echo $HTTP_RESPONSE
+echo $HTTP_BODY
 
 echo
 
@@ -68,7 +68,7 @@ else
 
     echo
 
-    echo $HTTP_RESPONSE
+    echo $HTTP_BODY
 
     echo
 
