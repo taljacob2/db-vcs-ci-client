@@ -14,7 +14,7 @@ LOG_BOUNDARY="################################"
 SERVER_LOG_HALF_BOUNDARY="###########"
 
 URL='"$SERVER"'
-echo URL
+echo $URL
 
 echo
 echo $LOG_BOUNDARY
