@@ -41,6 +41,8 @@ curl -k -X 'POST' \
 echo
 
 echo $http_code
+echo $http_code
+echo $http_code
 
 if [[ "$status_code" -ne 200 ]] ; then
     echo $LOG_TITLE "Encountered An Error."
