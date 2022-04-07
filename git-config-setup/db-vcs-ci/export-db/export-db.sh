@@ -9,22 +9,13 @@ SERVER="https://localhost:7179"
 
 # -----------------------------------------------------------------------------
 
-function surroundWithSingleQuotes
- {
-
-  surroundWithSingleQuotes_RETURN_VALUE=\'"$1"\'
-  echo $surroundWithSingleQuotes_RETURN_VALUE
-}
-
-FINAL_VALUE=$(surroundWithSingleQuotes "hi")
-# -----------------------------------------------------------------------------
-
-
 LOG_TITLE="### export-db.sh ###: "
 LOG_BOUNDARY="################################"
 SERVER_LOG_HALF_BOUNDARY="###########"
 
-URL=$SERVER
+URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY"
+URL=\'"$URL"\'
+
 echo \'"$URL"\'
 
 echo
