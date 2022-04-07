@@ -43,7 +43,50 @@ HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
 
 echo
 
-echo $HTTP_BODY
+echo $HTTP_RESPONSE
 
+echo
+
+if [[ "$HTTP_STATUS" -ne 200 ]] ; then
+    echo $LOG_TITLE "Encountered An Error."
+else
+    echo $LOG_TITLE "Successfully Created .bak File In The Server!"
+    echo $LOG_TITLE "Attempting To Download .bak File From Server..."
+
+    echo
+
+    URL="$SERVER/api/download-file?filePathInServer=$WORKING_DIRECTORY_IN_SERVER/$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY&mimeType=application/octet-stream"
+
+    HTTP_RESPONSE=$(curl -k -X 'GET' \
+                    -H 'accept: */*' \
+                    $URL \
+                    -o $EXPORTED_DB_BAK_PATH_IN_CLIENT \
+                    --write-out "HTTPSTATUS:%{http_code}")
+
+    HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
+    HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
+
+    echo
+
+    echo $HTTP_RESPONSE
+
+    echo
+
+    if [[ "$HTTP_STATUS" -ne 200 ]] ; then
+      echo $LOG_TITLE "Encountered An Error."
+    else
+        echo $LOG_TITLE "Received .bak File Successfully!"
+
+        # Create a dummy file for indication that the "pre-commit" process has finished,
+        # and the files were not commited yet.
+        touch git-config-setup/db-vcs-ci/export-db/.commit
+    fi
+fi
+
+echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
+echo
+echo $LOG_TITLE "Export DB Process Finished."
+echo $LOG_BOUNDARY
+echo
 
 exit
