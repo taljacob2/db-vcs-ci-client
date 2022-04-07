@@ -36,7 +36,7 @@ curl -k -X 'POST' \
               -H 'accept: */*' \
               -H 'Content-Type: application/sql' \
               -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
-              %{http_code}
+              -o %{http_code}
 
 echo
 
