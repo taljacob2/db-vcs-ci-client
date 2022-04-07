@@ -9,6 +9,8 @@ echo $LOG_TITLE "Attempting To Export DB From Server..."
 
 echo $LOG_TITLE "Attempting To Create .bak File In The Server..."
 
+echo $LOG_TITLE "SHOWING OUTPUT FROM SERVER:"
+
 echo
 curl -k -X 'POST' \
             'https://localhost:7179/api/execute-cmd-command?workingDirectory=C:\Bak' \
@@ -18,7 +20,7 @@ curl -k -X 'POST' \
 echo
 
 
-echo
+echo $LOG_TITLE "DONE SHOWING OUTPUT FROM SERVER."
 echo $LOG_TITLE "Export DB Process Finished."
 echo $LOG_BOUNDARY
 echo
