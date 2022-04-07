@@ -12,6 +12,8 @@ LOG_TITLE="### export-db.sh ###: "
 LOG_BOUNDARY="################################"
 SERVER_LOG_HALF_BOUNDARY="###########"
 
+WORKING_DIRECTORY="C:\Bak"
+
 echo
 echo $LOG_BOUNDARY
 echo $LOG_TITLE "Attempting To Export DB From Server..."
@@ -25,7 +27,7 @@ curl -k -X 'POST' \
             'https://localhost:7179/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY' \
             -H 'accept: */*' \
             -H 'Content-Type: application/sql' \
-            -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat $COMPUTER_NAME $INSTANCE_NAME $DB_NAME $WORKING_DIRECTORY
+            -d "@git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat $COMPUTER_NAME $INSTANCE_NAME $DB_NAME $WORKING_DIRECTORY"
 echo
 
 echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
