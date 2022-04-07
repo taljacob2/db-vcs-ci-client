@@ -54,15 +54,15 @@ else
 
     URL="$SERVER/api/download-file?filePathInServer=$WORKING_DIRECTORY_IN_SERVER/$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY&mimeType=application/octet-stream"
 
-    HTTP_RESPONSE2=$(curl -k -X 'GET' \
+    HTTP_RESPONSE=$(curl -k -X 'GET' \
                     -H 'accept: */*' \
                     $URL \
                     -o $EXPORTED_DB_BAK_PATH_IN_CLIENT \
                     --write-out "HTTPSTATUS:%{http_code}")
 
-    HTTP_STATUS2=$(echo $HTTP_RESPONSE2 | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
-    HTTP_BODY2=$(echo $HTTP_RESPONSE2 | sed -e 's/HTTPSTATUS\:.*//g')
-    echo $HTTP_BODY2
+    HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
+    HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
+    echo $HTTP_BODY
 
     echo
 
