@@ -31,19 +31,22 @@ echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
-TEST=$(curl -k -X 'POST' \
+HTTP_RESPONSE=$(curl -k -X 'POST' \
               $URL \
               -H 'accept: */*' \
               -H 'Content-Type: application/sql' \
               -w %{http_code} \
               -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat)
 
+HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
+
 echo
-echo $TEST
+echo $HTTP_STATUS
 echo "----------------------------------------"
-echo $TEST
+echo $HTTP_STATUS
+echo $HTTP_STATUS
 echo "----------------------------------------"
-echo $TEST
+echo $HTTP_STATUS
 
 if [[ "$status_code" -ne 200 ]] ; then
     echo $LOG_TITLE "Encountered An Error."
