@@ -25,7 +25,7 @@ echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_
 
 echo
 curl -k -X 'POST' \
-            'https://localhost:7179/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY' \
+            'https://localhost:7179/api/execute-cmd-command?workingDirectory=${WORKING_DIRECTORY}' \
             -H 'accept: */*' \
             -H 'Content-Type: application/sql' \
             -d "@git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat $COMPUTER_NAME $INSTANCE_NAME $DB_NAME $WORKING_DIRECTORY"
