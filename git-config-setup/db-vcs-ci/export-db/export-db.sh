@@ -40,7 +40,9 @@ TEST=$(curl -k -X 'POST' \
 
 echo
 echo $TEST
+echo "----------------------------------------"
 echo $TEST
+echo "----------------------------------------"
 echo $TEST
 
 if [[ "$status_code" -ne 200 ]] ; then
