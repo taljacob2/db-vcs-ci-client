@@ -1,5 +1,13 @@
 #!/bin/sh
 
+COMPUTER_NAME="(localdb)"
+INSTANCE_NAME="Local"
+DB_NAME="Klil-Local-Tal"
+WORKING_DIRECTORY="C:\Bak"
+EXPORTED_DB_BAK_NAME="db.bak"
+
+# -----------------------------------------------------------------------------
+
 LOG_TITLE="### export-db.sh ###: "
 LOG_BOUNDARY="################################"
 SERVER_LOG_HALF_BOUNDARY="###########"
@@ -14,10 +22,10 @@ echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_
 
 echo
 curl -k -X 'POST' \
-            'https://localhost:7179/api/execute-cmd-command?workingDirectory=C:\Bak' \
+            'https://localhost:7179/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY' \
             -H 'accept: */*' \
             -H 'Content-Type: application/sql' \
-            -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat
+            -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat $COMPUTER_NAME $INSTANCE_NAME $DB_NAME $WORKING_DIRECTORY
 echo
 
 echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
