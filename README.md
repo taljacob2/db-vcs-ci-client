@@ -6,7 +6,7 @@
 
 Open *powershell.exe* and run:
 ```
-git-config-setup/git-config-setup-for-windows.ps1
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; git-config-setup/git-config-setup-for-windows.ps1
 ```
 
 ### On Linux:
