@@ -17,6 +17,7 @@ function surroundWithSingleQuotes {
   echo $surroundWithSingleQuotes_RETURN_VALUE
 }
 
+surroundWithSingleQuotes
 # -----------------------------------------------------------------------------
 
 
