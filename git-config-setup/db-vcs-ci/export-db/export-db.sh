@@ -11,13 +11,13 @@ SERVER="https://localhost:7179"
 
 function surroundWithSingleQuotes {
   args
-    : sourceStringToSurround
+    : @required string sourceStringToSurround
 
   surroundWithSingleQuotes_RETURN_VALUE=\'"${sourceStringToSurround}"\'
   echo $surroundWithSingleQuotes_RETURN_VALUE
 }
 
-surroundWithSingleQuotes hi
+surroundWithSingleQuotes "hi"
 # -----------------------------------------------------------------------------
 
 
