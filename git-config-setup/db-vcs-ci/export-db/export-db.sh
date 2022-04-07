@@ -27,7 +27,7 @@ else
     echo
     status_code=$(curl -k -X 'GET' \
                   -H 'accept: */*' \
-                  'https://localhost:7179/api/download-file?filePathInServer=C:\Bak\db.bak&mimeType=application/octet-stream' \
+                  'https://localhost:7179/api/download-file?filePathInServer=C%3A%5CBak%5Chello.txt&mimeType=text%2Fplain' \
                   --output git-config-setup/db-vcs-ci/db.bak \
                   --write-out %{http_code})
     echo

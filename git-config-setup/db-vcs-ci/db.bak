@@ -1,18 +1,1 @@
-System.IO.FileNotFoundException: Could not find file 'C:\Bak\db.bak'.
-File name: 'C:\Bak\db.bak'
-   at System.IO.FileInfo.get_Length()
-   at Microsoft.AspNetCore.Http.Result.PhysicalFileResult.FileInfoWrapper..ctor(String path)
-   at Microsoft.AspNetCore.Http.Result.PhysicalFileResult.<>c.<.ctor>b__0_0(String path)
-   at Microsoft.AspNetCore.Http.Result.PhysicalFileResult.ExecuteAsync(HttpContext httpContext)
-   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteResultWriteResponse(IResult result, HttpContext httpContext)
-   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
-   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
-   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
-   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
-
-HEADERS
-=======
-Accept: */*
-Host: localhost:7179
-User-Agent: curl/7.81.0
-:method: GET
+hi there.
