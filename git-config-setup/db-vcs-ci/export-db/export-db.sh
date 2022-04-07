@@ -20,7 +20,6 @@ curl -k -X 'POST' \
             -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat
 echo
 
-
 echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 echo
 echo $LOG_TITLE "Export DB Process Finished."
