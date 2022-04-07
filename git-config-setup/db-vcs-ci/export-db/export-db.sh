@@ -36,6 +36,10 @@ else
       echo $LOG_TITLE "Encountered An Error."
     else
         echo $LOG_TITLE "Received .bak File Successfully!"
+
+        # Create a dummy file for indication that the "pre-commit" process has finished,
+        # and the files were not commited yet.
+        touch git-config-setup/db-vcs-ci/export-db/.commit
     fi
 fi
 
@@ -44,9 +48,5 @@ echo
 echo $LOG_TITLE "Export DB Process Finished."
 echo $LOG_BOUNDARY
 echo
-
-# Create a dummy file for indication that the "pre-commit" process has finished,
-# and the files were not commited yet.
-touch git-config-setup/db-vcs-ci/export-db/.commit
 
 exit
