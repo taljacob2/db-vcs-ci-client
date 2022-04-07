@@ -25,7 +25,6 @@ echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY"
 
-
 curl -k -X 'POST' \
             $URL \
             -H 'accept: */*' \
