@@ -5,6 +5,7 @@ INSTANCE_NAME="Local"
 DB_NAME="Klil-Local-Tal"
 WORKING_DIRECTORY="C:\Bak"
 EXPORTED_DB_BAK_NAME="db.bak"
+SERVER="https://localhost:7179"
 
 # -----------------------------------------------------------------------------
 
@@ -12,7 +13,8 @@ LOG_TITLE="### export-db.sh ###: "
 LOG_BOUNDARY="################################"
 SERVER_LOG_HALF_BOUNDARY="###########"
 
-WORKING_DIRECTORY="C:\Bak"
+URL='"$SERVER"'
+echo URL
 
 echo
 echo $LOG_BOUNDARY
@@ -21,7 +23,6 @@ echo $LOG_TITLE "Attempting To Export DB From Server..."
 echo $LOG_TITLE "Attempting To Create .bak File In The Server..."
 
 echo $LOG_TITLE $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
-
 
 echo
 curl -k -X 'POST' \
