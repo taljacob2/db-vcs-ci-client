@@ -1,2 +1,5 @@
 # "pre-commit" status indication
 .commit
+
+# The last response of the "export-query" made to server.
+http-response.txt
