@@ -39,14 +39,8 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 --write-out "HTTPSTATUS:%{http_code}")
 
 HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
-
 HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
-
-echo body
 echo $HTTP_BODY
-echo 
-echo status
-echo $HTTP_STATUS
 
 echo
 
@@ -64,9 +58,11 @@ else
                     -H 'accept: */*' \
                     $URL \
                     -o $EXPORTED_DB_BAK_PATH_IN_CLIENT \
-                    --write-out %{http_code})
+                    --write-out "HTTPSTATUS:%{http_code}")
 
-    HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*([0-9]{3})$/\1/')
+    HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
+    HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
+    echo $HTTP_BODY
 
     echo
 
