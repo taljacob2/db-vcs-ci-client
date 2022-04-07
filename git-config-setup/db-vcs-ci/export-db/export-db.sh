@@ -13,8 +13,8 @@ LOG_TITLE="### export-db.sh ###: "
 LOG_BOUNDARY="################################"
 SERVER_LOG_HALF_BOUNDARY="###########"
 
-URL='"$SERVER"'
-echo $URL
+URL=$SERVER
+echo '"$URL"'
 
 echo
 echo $LOG_BOUNDARY
