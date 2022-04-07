@@ -37,15 +37,11 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 -H 'Content-Type: application/sql' \
                 -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
                 --write-out "HTTPSTATUS:%{http_code}" \
-                -o http-response.txt)
+                -o git-config-setup/db-vcs-ci/export-db/http-response.txt)
 
-cat http-response.txt
-
+cat git-config-setup/db-vcs-ci/export-db/http-response.txt
 
 HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
-HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
-
-echo $HTTP_STATUS
 
 echo
 
@@ -66,11 +62,6 @@ else
                     --write-out "HTTPSTATUS:%{http_code}")
 
     HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
-    HTTP_BODY=$(echo $HTTP_RESPONSE | sed -e 's/HTTPSTATUS\:.*//g')
-
-
-    echo $HTTP_STATUS
-
 
     echo
 
