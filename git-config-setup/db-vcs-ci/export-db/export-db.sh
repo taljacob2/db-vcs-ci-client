@@ -20,7 +20,7 @@ echo
 
 if [[ "$status_code" -ne 200 ]] ; then
   echo $LOG_TITLE "Encountered An Error."
-else
+else  
     echo
     # echo $LOG_TITLE "Successfully Created .bak File In The Server!"
     # echo $LOG_TITLE "Attempting To Download .bak File From Server..."
