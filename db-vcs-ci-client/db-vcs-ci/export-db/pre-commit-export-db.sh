@@ -78,7 +78,7 @@ else
     echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
     if [[ "$HTTP_STATUS" -ne 200 ]] ; then
-      echo $LOG_TITLE $ERROR_MESSAGE $HTTP_STATUS
+        echo $LOG_TITLE $ERROR_MESSAGE $HTTP_STATUS
     else
         echo $LOG_TITLE "Successfully Downloaded '.bak' File!"
 
@@ -107,6 +107,7 @@ else
 fi
 
 echo $LOG_BOUNDARY
+
 echo
 
 exit
