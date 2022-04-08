@@ -2,7 +2,7 @@
 
 source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-settings.sh
 
-# ------------------------ Intern DB-VCS-CI Config --------------------------
+# ------------------------ DB-VCS-CI Intern Config --------------------------
 
 DB_VCS_CI_FOLDER_PATH=db-vcs-ci-client/db-vcs-ci
 EXPORT_DB_FOLDER_PATH=$DB_VCS_CI_FOLDER_PATH/export-db
