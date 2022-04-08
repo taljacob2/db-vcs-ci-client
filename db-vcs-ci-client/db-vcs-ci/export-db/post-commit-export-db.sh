@@ -19,7 +19,7 @@ if [ -e $EXPORT_DB_FOLDER_PATH/.commit ]
     git commit --amend -C HEAD --no-verify
 fi
 
-echo $LOG_BOUNDARY
+# echo $LOG_BOUNDARY
 echo
 
 exit
