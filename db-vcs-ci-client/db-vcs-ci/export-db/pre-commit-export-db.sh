@@ -8,7 +8,7 @@ LOG_TITLE="### pre-commit-export-db.sh ###: "
 SERVER_LOG_HALF_BOUNDARY="##########################"
 
 echo
-echo $LOG_BOUNDARY
+# echo $LOG_BOUNDARY
 
 echo $LOG_TITLE "Attempting To Export DB From Server..."
 
