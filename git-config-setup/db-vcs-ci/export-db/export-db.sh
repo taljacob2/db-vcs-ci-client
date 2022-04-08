@@ -20,6 +20,12 @@ URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERV
 
 RESPONSE_FILE_NAME=last-response-from-server.txt
 
+
+echo $EXPORT_DB_FOLDER_PATH
+echo $EXPORT_DB_FOLDER_PATH
+echo $EXPORT_DB_FOLDER_PATH
+echo $EXPORT_DB_FOLDER_PATH
+
 "" > $EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
 
 HTTP_RESPONSE=$(curl -k -X 'POST' \
