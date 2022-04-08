@@ -1,5 +1,5 @@
 # "pre-commit" status indication
 .commit
 
-# The last response of the "export-query" made to server.
+# The last response from server to a "export-db" or "import-db" request.
 last-response-from-server.txt
