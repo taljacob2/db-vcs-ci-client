@@ -32,7 +32,7 @@ truncate -s 0 $RESPONSE_FILE_PATH
 HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
                 -H 'accept: */*' \
-                -H 'Content-Type: application/sql' \
+                -H 'Content-Type: text/plain' \
                 -d @$EXPORT_DB_FOLDER_PATH/export-db-sql-query.bat \
                 --write-out "HTTPSTATUS:%{http_code}" \
                 -o $RESPONSE_FILE_PATH)
