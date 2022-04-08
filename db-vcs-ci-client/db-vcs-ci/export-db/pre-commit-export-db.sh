@@ -59,9 +59,11 @@ else
 
     URL="$SERVER/api/download-file?filePathInServer=$WORKING_DIRECTORY_IN_SERVER/$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY&mimeType=application/octet-stream"
 
+    EXPORTED_DB_BAK_PATH_IN_CLIENT="$DB_VCS_CI_FOLDER_PATH/$EXPORTED_DB_BAK_NAME_IN_CLIENT"
+
     # Download to a "ghost" '.bak', so if the response returns with an error it
     # won't affect the good '.bak' we already have.
-    GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT="ghost_$EXPORTED_DB_BAK_PATH_IN_CLIENT"
+    GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT="ghost_$EXPORTED_DB_BAK_NAME_IN_CLIENT"
 
     HTTP_RESPONSE=$(curl -k -X 'GET' \
                     -H 'accept: */*' \

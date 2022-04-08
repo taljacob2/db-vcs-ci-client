@@ -13,7 +13,7 @@ LOG_BOUNDARY="##################################################################
 COMPUTER_NAME="(localdb)"
 INSTANCE_NAME="Local"
 DB_NAME="Klil-Local-Tal"
-EXPORTED_DB_BAK_PATH_IN_CLIENT="$DB_VCS_CI_FOLDER_PATH/db.bak"
+EXPORTED_DB_BAK_NAME_IN_CLIENT="db.bak"
 
 # ------------------------ Server Advanced Settings ---------------------------
 
