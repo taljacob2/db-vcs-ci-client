@@ -1,15 +1,12 @@
 #!/bin/sh
+
+source git-config-setup/db-vcs-ci/config/db-vcs-ci-setup.sh
+
 git stash -q --keep-index
-
-# ------------------------ Intern DB-VCS-CI Settings --------------------------
-
-DB_VCS_CI_FOLDER_PATH=git-config-setup/db-vcs-ci
 
 # ---------------------------------- Code -------------------------------------
 
-./$DB_VCS_CI_FOLDER_PATH/config/db-vcs-ci-setup.sh
-
-./$EXPORT_DB_FOLDER_PATH/export-db.sh
+./$EXPORT_DB_FOLDER_PATH/pre-commit-export-db.sh
 
 # -----------------------------------------------------------------------------
 

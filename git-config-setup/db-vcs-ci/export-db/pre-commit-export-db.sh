@@ -1,5 +1,7 @@
 #!/bin/sh
 
+source git-config-setup/db-vcs-ci/config/db-vcs-ci-setup.sh
+
 # ---------------------------------- Code -------------------------------------
 
 LOG_TITLE="### export-db.sh ###: "
@@ -19,12 +21,6 @@ echo
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
 RESPONSE_FILE_NAME=last-response-from-server.txt
-
-
-echo $EXPORT_DB_FOLDER_PATH
-echo $EXPORT_DB_FOLDER_PATH
-echo $EXPORT_DB_FOLDER_PATH
-echo $EXPORT_DB_FOLDER_PATH
 
 "" > $EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
 
