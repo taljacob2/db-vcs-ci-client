@@ -44,12 +44,16 @@ HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3
 
 echo
 
+echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
+
 if [[ "$HTTP_STATUS" -ne 200 ]] ; then
     echo $LOG_TITLE "Encountered An Error."
 else
     echo $LOG_TITLE "Successfully Executed Command In The Server!"
     
     echo $LOG_TITLE "Attempting To Download .bak File From Server..."
+
+    echo $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
     echo
 
@@ -65,6 +69,8 @@ else
 
     echo
 
+    echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
+
     if [[ "$HTTP_STATUS" -ne 200 ]] ; then
       echo $LOG_TITLE "Encountered An Error."
     else
@@ -76,8 +82,8 @@ else
     fi
 fi
 
-echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 echo
+
 echo $LOG_TITLE "Export DB Process Finished."
 
 exit
