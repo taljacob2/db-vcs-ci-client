@@ -7,7 +7,7 @@ INSTANCE_NAME="Local"
 DB_NAME="Klil-Local-Tal"
 EXPORTED_DB_BAK_PATH_IN_CLIENT="git-config-setup/db-vcs-ci/db.bak"
 
-# ------------------------ Server Advaced Settings ----------------------------
+# ------------------------ Server Advanced Settings ---------------------------
 
 WORKING_DIRECTORY_IN_SERVER="C:\Bak"
 EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY="db.bak"
