@@ -29,7 +29,7 @@ echo $RESPONSE_FILE_PATH
 echo $RESPONSE_FILE_PATH
 echo $RESPONSE_FILE_PATH
 
-"" > "$RESPONSE_FILE_PATH"
+"" > \"$RESPONSE_FILE_PATH\"
 
 HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
