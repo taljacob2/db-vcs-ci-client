@@ -84,8 +84,4 @@ fi
 
 echo
 
-echo $LOG_TITLE "Export DB Process Finished."
-
-echo
-
 exit
