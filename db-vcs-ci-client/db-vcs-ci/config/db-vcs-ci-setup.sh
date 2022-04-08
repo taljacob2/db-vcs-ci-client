@@ -2,7 +2,7 @@
 
 # ------------------------ Intern DB-VCS-CI Settings --------------------------
 
-DB_VCS_CI_FOLDER_PATH=git-config-setup/db-vcs-ci
+DB_VCS_CI_FOLDER_PATH=db-vcs-ci-client/db-vcs-ci
 EXPORT_DB_FOLDER_PATH=$DB_VCS_CI_FOLDER_PATH/export-db
 IMPORT_DB_FOLDER_PATH=$DB_VCS_CI_FOLDER_PATH/import-db
 

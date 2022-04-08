@@ -6,14 +6,14 @@
 
 Open *powershell.exe* and run:
 ```
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; git-config-setup/git-config-setup-for-windows.ps1
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass; db-vcs-ci-client/setup-for-windows.ps1
 ```
 
 ### On Linux:
 
 Open *terminal* and run:
 ```
-./git-config-setup/git-config-setup-for-linux.sh
+./db-vcs-ci-client/setup-for-linux.sh
 ```
 
 ## NOTE

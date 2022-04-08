@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source git-config-setup/db-vcs-ci/config/db-vcs-ci-setup.sh
+source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-setup.sh
 
 # In case there is an on-going execution to export the db.
 if [ -e $EXPORT_DB_FOLDER_PATH/.commit ]

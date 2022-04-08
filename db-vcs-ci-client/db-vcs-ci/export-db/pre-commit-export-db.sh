@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source git-config-setup/db-vcs-ci/config/db-vcs-ci-setup.sh
+source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-setup.sh
 
 # ---------------------------------- Code -------------------------------------
 
