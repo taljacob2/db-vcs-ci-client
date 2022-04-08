@@ -2,6 +2,8 @@
 
 source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-setup.sh
 
+# ---------------------------------- Code -------------------------------------
+
 # In case there is an on-going execution to export the db.
 if [ -e $EXPORT_DB_FOLDER_PATH/.commit ]
     then
