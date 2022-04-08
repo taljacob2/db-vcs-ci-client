@@ -12,3 +12,5 @@ EXPORTED_DB_BAK_PATH_IN_CLIENT="$DB_VCS_CI_FOLDER_PATH/$EXPORTED_DB_BAK_NAME_IN_
 
 LOG_BOUNDARY="###############################################################################"
 ERROR_MESSAGE="Encountered An Error."
+
+PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH=$EXPORT_DB_FOLDER_PATH/.pre-commit-has-finished-successfully

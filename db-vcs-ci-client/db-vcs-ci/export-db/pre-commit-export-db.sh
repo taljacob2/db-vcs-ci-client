@@ -82,9 +82,9 @@ else
     else
         echo $LOG_TITLE "Successfully Downloaded '.bak' File!"
 
-        # Create a dummy file for indication that the "pre-commit" process has finished,
-        # and the files were not commited yet.
-        touch $EXPORT_DB_FOLDER_PATH/.commit
+        # Create a dummy file for indication that the "pre-commit" process has finished successfully.
+        # This may be useful for the "post-commit" hook.
+        touch $PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH
 
         # Overwrite our old '.bak' file if exists.
         # rm $EXPORTED_DB_BAK_PATH_IN_CLIENT

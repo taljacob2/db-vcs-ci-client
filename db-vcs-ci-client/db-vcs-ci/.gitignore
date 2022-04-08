@@ -1,5 +1,5 @@
-# "pre-commit" status indication
-.commit
+#  A dummy file for indication that the "pre-commit" process has finished successfully.
+.pre-commit-has-finished-successfully
 
 # The last response from server to a "export-db" or "import-db" request.
 last-response-from-server.txt
