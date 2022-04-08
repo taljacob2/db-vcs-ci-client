@@ -6,7 +6,7 @@ source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-setup.sh
 
 LOG_TITLE="### export-db.sh ###: "
 LOG_BOUNDARY="###############################################################################"
-SERVER_LOG_HALF_BOUNDARY="#########################"
+SERVER_LOG_HALF_BOUNDARY="##########################"
 
 echo
 echo $LOG_BOUNDARY
