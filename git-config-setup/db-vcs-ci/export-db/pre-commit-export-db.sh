@@ -22,7 +22,9 @@ URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERV
 
 RESPONSE_FILE_NAME=last-response-from-server.txt
 
-"" > $EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
+RESPONSE_FILE_PATH=$EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
+
+"" > $RESPONSE_FILE_PATH
 
 HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
@@ -30,9 +32,9 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 -H 'Content-Type: application/sql' \
                 -d @$EXPORT_DB_FOLDER_PATH/export-db-sql-query.bat \
                 --write-out "HTTPSTATUS:%{http_code}" \
-                -o $EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME)
+                -o $RESPONSE_FILE_PATH)
 
-cat $EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
+cat $RESPONSE_FILE_PATH
 
 HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
 
