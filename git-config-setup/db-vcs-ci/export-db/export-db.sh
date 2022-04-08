@@ -1,18 +1,5 @@
 #!/bin/sh
 
-# ---------------------------- Basic Settings ---------------------------------
-
-COMPUTER_NAME="(localdb)"
-INSTANCE_NAME="Local"
-DB_NAME="Klil-Local-Tal"
-EXPORTED_DB_BAK_PATH_IN_CLIENT="git-config-setup/db-vcs-ci/db.bak"
-
-# ------------------------ Server Advanced Settings ---------------------------
-
-WORKING_DIRECTORY_IN_SERVER="C:\Bak"
-EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY="db.bak"
-SERVER="https://localhost:7179"
-
 # ---------------------------------- Code -------------------------------------
 
 LOG_TITLE="### export-db.sh ###: "
@@ -31,17 +18,19 @@ echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
-"" > git-config-setup/db-vcs-ci/export-db/http-response.txt
+RESPONSE_FILE_NAME=last-response-from-server.txt
+
+"" > $EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
 
 HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
                 -H 'accept: */*' \
                 -H 'Content-Type: application/sql' \
-                -d @git-config-setup/db-vcs-ci/export-db/export-db-sql-query.bat \
+                -d @$EXPORT_DB_FOLDER_PATH/export-db-sql-query.bat \
                 --write-out "HTTPSTATUS:%{http_code}" \
-                -o git-config-setup/db-vcs-ci/export-db/http-response.txt)
+                -o $EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME)
 
-cat git-config-setup/db-vcs-ci/export-db/http-response.txt
+cat $EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
 
 HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
 
@@ -75,7 +64,7 @@ else
 
         # Create a dummy file for indication that the "pre-commit" process has finished,
         # and the files were not commited yet.
-        touch git-config-setup/db-vcs-ci/export-db/.commit
+        touch $EXPORT_DB_FOLDER_PATH/.commit
     fi
 fi
 

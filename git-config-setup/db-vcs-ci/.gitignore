@@ -2,4 +2,4 @@
 .commit
 
 # The last response of the "export-query" made to server.
-http-response.txt
+last-response-from-server.txt
