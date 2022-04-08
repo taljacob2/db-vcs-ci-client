@@ -3,6 +3,10 @@
 "db-vcs-ci" is a tool to automatically backup your database along your code, and inserts the backups to your commits,
 so you could source-control the backups of your database.
 
+### Screenshot Example
+
+![image](https://user-images.githubusercontent.com/70590583/162546023-2594372a-4317-4282-9b69-f159d03642d7.png)
+
 ### Export Database
 
 Right after you commit your files via
