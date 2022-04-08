@@ -106,7 +106,6 @@ else
     rm $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT
 fi
 
-echo
 echo $LOG_BOUNDARY
 
 exit
