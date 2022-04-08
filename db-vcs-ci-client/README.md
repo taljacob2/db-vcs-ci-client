@@ -2,6 +2,8 @@
 
 ## Installation
 
+Copy the current [`db-vcs-ci-client` folder](../db-vcs-ci-client/) to the root folder of your project, and follow the following instructions:
+
 ### On Windows:
 
 Open *powershell.exe* and run:
