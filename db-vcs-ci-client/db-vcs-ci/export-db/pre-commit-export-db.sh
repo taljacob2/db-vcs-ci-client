@@ -87,7 +87,7 @@ else
         touch $EXPORT_DB_FOLDER_PATH/.commit
 
         # Overwrite our old '.bak' file if exists.
-        rm $EXPORTED_DB_BAK_PATH_IN_CLIENT
+        # rm $EXPORTED_DB_BAK_PATH_IN_CLIENT
         cp -f $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT $EXPORTED_DB_BAK_PATH_IN_CLIENT
     fi
 
