@@ -89,6 +89,17 @@ else
         # Overwrite our old '.bak' file if exists.
         # rm $EXPORTED_DB_BAK_PATH_IN_CLIENT
         cp -f $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT $EXPORTED_DB_BAK_PATH_IN_CLIENT
+
+        echo $LOG_TITLE "Adding The '.bak' File To Your Index..."
+
+        RESULT=$?
+        git add $EXPORTED_DB_BAK_PATH_IN_CLIENT
+        if [ $RESULT -ne 0 ]
+            then
+            echo $ERROR_MESSAGE
+        else        
+            echo $LOG_TITLE "Successfully Added The '.bak' File To Your Index!"
+        fi        
     fi
 
     # Remove "ghost" '.bak'
