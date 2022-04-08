@@ -1,6 +1,6 @@
 # db-vcs-ci-client
 
-"db-vcs-ci" is a tool to automatically backup your database along your code, and inserts the backups to your commits,
+"db-vcs-ci" is a tool that automatically backups your database along your code, and inserts the backups to your commits,
 so you could source-control the backups of your database.
 
 The default sql commands extract / import a MSSQL database that uses [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) and is run on *Windows Server 2012 R2*,
