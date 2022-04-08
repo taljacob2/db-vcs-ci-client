@@ -39,12 +39,6 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
 
 cat $RESPONSE_FILE_PATH
 
-echo $HTTP_RESPONSE
-echo $HTTP_RESPONSE
-echo $HTTP_RESPONSE
-echo $HTTP_RESPONSE
-
-
 HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
 
 echo
