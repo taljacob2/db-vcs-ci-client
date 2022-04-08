@@ -13,7 +13,7 @@ echo
 
 echo $LOG_TITLE "Attempting To Export DB From Server..."
 
-echo $LOG_TITLE "Attempting To Create .bak File In The Server..."
+echo $LOG_TITLE "Attempting To Create '.bak' File In The Server..."
 
 echo $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
@@ -35,7 +35,7 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 -H 'accept: */*' \
                 -H 'Content-Type: text/plain' \
                 -d @$EXPORT_DB_FOLDER_PATH/export-db-sql-query.bat \
-                --write-out "HTTPSTATUS:%{http_code}" \
+                -w "HTTPSTATUS:%{http_code}" \
                 -o $RESPONSE_FILE_PATH)
 
 cat $RESPONSE_FILE_PATH
@@ -47,11 +47,11 @@ echo
 echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
 if [[ "$HTTP_STATUS" -ne 200 ]] ; then
-    echo $LOG_TITLE "Encountered An Error."
+    echo $LOG_TITLE "Encountered An Error." $HTTP_STATUS
 else
     echo $LOG_TITLE "Successfully Executed Command In The Server!"
     
-    echo $LOG_TITLE "Attempting To Download .bak File From Server..."
+    echo $LOG_TITLE "Attempting To Download '.bak' File From Server..."
 
     echo $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
@@ -59,11 +59,15 @@ else
 
     URL="$SERVER/api/download-file?filePathInServer=$WORKING_DIRECTORY_IN_SERVER/$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY&mimeType=application/octet-stream"
 
+    # Download to a "ghost" '.bak', so if the response returns with an error it
+    # won't affect the good '.bak' we already have.
+    GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT="ghost_$EXPORTED_DB_BAK_PATH_IN_CLIENT"
+
     HTTP_RESPONSE=$(curl -k -X 'GET' \
                     -H 'accept: */*' \
                     $URL \
-                    -o $EXPORTED_DB_BAK_PATH_IN_CLIENT \
-                    --write-out "HTTPSTATUS:%{http_code}")
+                    -o $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT \
+                    -w "HTTPSTATUS:%{http_code}")
 
     HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
 
@@ -72,14 +76,20 @@ else
     echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
     if [[ "$HTTP_STATUS" -ne 200 ]] ; then
-      echo $LOG_TITLE "Encountered An Error."
+      echo $LOG_TITLE "Encountered An Error." $HTTP_STATUS
     else
-        echo $LOG_TITLE "Received .bak File Successfully!"
+        echo $LOG_TITLE "Received '.bak' File Successfully!"
 
         # Create a dummy file for indication that the "pre-commit" process has finished,
         # and the files were not commited yet.
         touch $EXPORT_DB_FOLDER_PATH/.commit
+
+        # Overwrite our old '.bak' file if exists.
+        cp -f $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT $EXPORTED_DB_BAK_PATH_IN_CLIENT
     fi
+
+    # Remove "ghost" '.bak'
+    rm $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT
 fi
 
 echo
