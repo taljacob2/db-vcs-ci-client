@@ -25,7 +25,7 @@ RESPONSE_FILE_NAME=last-response-from-server.txt
 RESPONSE_FILE_PATH=$EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
 
 # 1. Create a file if not already created.
-# 2. Empty the file, if already contains content from last response.
+# 2. Empty the file if already contains content from last response.
 touch $RESPONSE_FILE_PATH
 truncate -s 0 $RESPONSE_FILE_PATH
 
