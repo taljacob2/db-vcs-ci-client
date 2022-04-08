@@ -7,8 +7,6 @@ source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-setup.sh
 LOG_TITLE="### post-commit-export-db.sh ###: "
 
 echo
-echo $LOG_BOUNDARY
-echo
 
 # In case there is an on-going execution to export the db.
 if [ -e $EXPORT_DB_FOLDER_PATH/.commit ]
@@ -21,7 +19,6 @@ if [ -e $EXPORT_DB_FOLDER_PATH/.commit ]
     git commit --amend -C HEAD --no-verify
 fi
 
-echo
 echo $LOG_BOUNDARY
 echo
 
