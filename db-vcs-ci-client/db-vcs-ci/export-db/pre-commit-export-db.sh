@@ -47,7 +47,7 @@ echo
 echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
 if [[ "$HTTP_STATUS" -ne 200 ]] ; then
-    echo $LOG_TITLE "Encountered An Error." $HTTP_STATUS
+    echo $LOG_TITLE $ERROR_MESSAGE $HTTP_STATUS
 else
     echo $LOG_TITLE "Successfully Executed Command In The Server!"
     
@@ -78,7 +78,7 @@ else
     echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
     if [[ "$HTTP_STATUS" -ne 200 ]] ; then
-      echo $LOG_TITLE "Encountered An Error." $HTTP_STATUS
+      echo $LOG_TITLE $ERROR_MESSAGE $HTTP_STATUS
     else
         echo $LOG_TITLE "Received '.bak' File Successfully!"
 
