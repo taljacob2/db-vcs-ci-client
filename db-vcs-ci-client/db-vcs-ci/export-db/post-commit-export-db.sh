@@ -1,22 +1,21 @@
-# #!/bin/sh
+#!/bin/sh
 
-# source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-intern-config.sh
+source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-intern-config.sh
 
-# # ---------------------------------- Code -------------------------------------
+# ---------------------------------- Code -------------------------------------
 
-# LOG_TITLE="### post-commit-export-db.sh ###: "
+LOG_TITLE="### post-commit-export-db.sh ###: "
 
 # echo
 
-# # In case there is an on-going execution to export the db.
-# if [ -e $PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH ]
-#     then
-#     rm $PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH
+# In case there is an on-going execution to export the db.
+if [ -e $PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH ]
+    then
+    rm $PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH
 
+    ### Add Content Here...
+fi
 
-#     ### Add Content Here...
-# fi
+# echo $LOG_BOUNDARY
 
-# # echo $LOG_BOUNDARY
-
-# exit
+exit
