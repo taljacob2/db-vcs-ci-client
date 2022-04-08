@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source db-vcs-ci-client/db-vcs-ci/config/intern-db-vcs-ci-config.sh
+source db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-intern-config.sh
 
 # ---------------------------------- Code -------------------------------------
 
