@@ -20,6 +20,5 @@ if [ -e $EXPORT_DB_FOLDER_PATH/.commit ]
 fi
 
 # echo $LOG_BOUNDARY
-echo
 
 exit
