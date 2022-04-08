@@ -21,6 +21,7 @@ git commit
 
 So the database you are working on will be automatically backed-up to your source-code.
 The default settings set the `.bak` file to be placed at: [db-vcs-ci-client//db-vcs-ci/db.bak](../db-vcs-ci-client//db-vcs-ci/db.bak).
+You can change the settings [here](#change-settings).
 
 ### Import Database
 
