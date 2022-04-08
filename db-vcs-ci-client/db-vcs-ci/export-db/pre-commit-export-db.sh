@@ -9,7 +9,6 @@ SERVER_LOG_HALF_BOUNDARY="##########################"
 
 echo
 echo $LOG_BOUNDARY
-echo
 
 echo $LOG_TITLE "Attempting To Export DB From Server..."
 
@@ -80,7 +79,6 @@ echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDA
 echo
 echo $LOG_TITLE "Export DB Process Finished."
 
-echo
 echo $LOG_BOUNDARY
 echo
 
