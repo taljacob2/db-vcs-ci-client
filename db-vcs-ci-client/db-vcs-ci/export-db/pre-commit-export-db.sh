@@ -107,5 +107,6 @@ else
 fi
 
 echo $LOG_BOUNDARY
+echo
 
 exit
