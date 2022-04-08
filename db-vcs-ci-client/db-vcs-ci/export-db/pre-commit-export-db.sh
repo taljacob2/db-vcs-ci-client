@@ -9,7 +9,7 @@ SERVER_LOG_HALF_BOUNDARY="##########################"
 
 echo
 
-# echo $LOG_BOUNDARY
+echo $LOG_BOUNDARY
 
 echo $LOG_TITLE "Attempting To Export DB From Server..."
 
@@ -80,7 +80,7 @@ else
     if [[ "$HTTP_STATUS" -ne 200 ]] ; then
       echo $LOG_TITLE $ERROR_MESSAGE $HTTP_STATUS
     else
-        echo $LOG_TITLE "Received '.bak' File Successfully!"
+        echo $LOG_TITLE "Successfully Downloaded '.bak' File!"
 
         # Create a dummy file for indication that the "pre-commit" process has finished,
         # and the files were not commited yet.
@@ -107,5 +107,6 @@ else
 fi
 
 echo
+echo $LOG_BOUNDARY
 
 exit
