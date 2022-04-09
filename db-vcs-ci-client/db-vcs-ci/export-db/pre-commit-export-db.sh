@@ -34,7 +34,7 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
                 -H 'accept: */*' \
                 -H 'Content-Type: text/plain' \
-                -d @$EXPORT_DB_FOLDER_PATH/export-db-sql-query.bat \
+                -d @$EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server.bat \
                 -w "HTTPSTATUS:%{http_code}" \
                 -o $RESPONSE_FILE_PATH)
 
