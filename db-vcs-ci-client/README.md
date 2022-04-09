@@ -6,34 +6,6 @@ so you could source-control the backups of your database.
 The default sql commands that come with "db-vcs-ci" extract / import a MSSQL database that uses [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) and is run on *Windows Server 2012 R2*,
 but you can edit the sql commands to be any commands, for any database.
 
-### Screenshot Example
-
-![image](https://user-images.githubusercontent.com/70590583/162546023-2594372a-4317-4282-9b69-f159d03642d7.png)
-
-### Export Database
-
-Right after you commit your files via
-```
-git commit
-```
-
-"db-vcs-ci" executes a sql command on the server which the database is located on, that:
-1. Exports a backup `.bak` file of the database.
-1. Downloads it from the server to your actual working-directory.
-1. And finally adds it to your commit.
-
-So the database you are working on will be automatically backed-up to your source-code.
-The default settings set the `.bak` file to be placed at: [db-vcs-ci-client//db-vcs-ci/db.bak](../db-vcs-ci-client/db-vcs-ci/db.bak).
-You can change the settings [here](#change-settings).
-
-### Import Database
-
-Also, "db-vcs-ci" is able to use a backup `.bak` file you already own, to import it staight into the server's database.
-This can be done by running:
-```
-git import-db
-```
-
 ## Installation
 
 Copy the current [`db-vcs-ci-client`](../db-vcs-ci-client/) folder to the root folder of your project, and follow the following instructions:
@@ -56,7 +28,27 @@ Open *terminal* and run:
 
 "db-vcs-ci" would backup your database automatically, when you make the `git commit` command, and will insert the `.bak` file to your commit.
 
-### Skip Backup
+### Export Database
+
+Right after you commit your files via
+```
+git commit
+```
+
+"db-vcs-ci" executes a sql command on the server which the database is located on, that:
+1. Exports a backup `.bak` file of the database.
+1. Downloads it from the server to your actual working-directory.
+1. And finally adds it to your commit.
+
+So the database you are working on will be automatically backed-up to your source-code.
+The default settings set the `.bak` file to be placed at: [db-vcs-ci-client/db-vcs-ci/db.bak](../db-vcs-ci-client/db-vcs-ci/db.bak).
+You can change the settings [here](#change-settings).
+
+#### Screenshot Example
+
+![image](https://user-images.githubusercontent.com/70590583/162546023-2594372a-4317-4282-9b69-f159d03642d7.png)
+
+#### Skip Exporting A Backup
 
 The backup runs as a "pre-commit" hook.
 Means, after you run `git commit`, but before the actual commit process.
@@ -65,6 +57,14 @@ In case you don't want to backup the database in your commit,
 then you can skip the backuping process with:
 ```
 git commit --no-verify
+```
+
+### Import Database
+
+Also, "db-vcs-ci" is able to use a backup `.bak` file you already own, to import it staight into the server's database.
+This can be done by running:
+```
+git import-db
 ```
 
 ### Change Settings
