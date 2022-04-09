@@ -1,2 +1,2 @@
-del /f C:\Bak\db.bak
-sqlcmd -S (localdb)\Local -Q "BACKUP DATABASE [Klil-Local-Tal] TO DISK = 'C:\Bak\db.bak'"
+del /f $4\$5 >nul 2>&1
+sqlcmd -S $1\$2 -Q "BACKUP DATABASE [$3] TO DISK = '$4\$5'"
