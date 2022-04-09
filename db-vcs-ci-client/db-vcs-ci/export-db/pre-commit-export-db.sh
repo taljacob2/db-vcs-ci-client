@@ -25,7 +25,6 @@ COMMAND_FILE_CONTENT=`cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server.
 COMMAND_FILE_PARAMETERS_CONTENT=`cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server-parameters.bat`
 
 RESPONSE_FILE_NAME=last-response-from-server.txt
-
 RESPONSE_FILE_PATH=$EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
 
 # 1. Create a file if not already created.
