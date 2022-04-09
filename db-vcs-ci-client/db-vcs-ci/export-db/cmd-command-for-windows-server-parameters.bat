@@ -1,4 +1,6 @@
-echo yes
-echo no
-echo yes1
-echo no1
+1
+2
+3
+4
+5
+6
