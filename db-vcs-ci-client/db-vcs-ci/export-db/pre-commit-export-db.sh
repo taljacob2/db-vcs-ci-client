@@ -36,12 +36,7 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 -H 'accept: */*' \
                 -H 'Content-Type: text/plain' \
                 -d "$COMMAND_FILE_CONTENT" \
-                -d ARGS[]= \
-                   $COMPUTER_NAME \
-                   &$INSTANCE_NAME \
-                   &$DB_NAME \
-                   &$WORKING_DIRECTORY_IN_SERVER \
-                   &$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY \
+                -d "ARGS[]=$COMPUTER_NAME&ARGS[]=$INSTANCE_NAME&ARGS[]=$DB_NAME&ARGS[]=$WORKING_DIRECTORY_IN_SERVER&ARGS[]=$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY" \
                 -w "HTTPSTATUS:%{http_code}" \
                 -o $RESPONSE_FILE_PATH)
 
