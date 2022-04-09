@@ -21,15 +21,12 @@ echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
-# COMMAND_FILE_CONTENT=`cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server-parameters.bat`
-# echo $COMMAND_FILE_CONTENT
-# echo $COMMAND_FILE_CONTENT
-# echo $COMMAND_FILE_CONTENT
-# echo $COMMAND_FILE_CONTENT
-# echo $COMMAND_FILE_CONTENT
-cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server-parameters.bat
-cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server-parameters.bat
-cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server-parameters.bat
+COMMAND_FILE_CONTENT=`cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server-parameters.bat`
+echo "$COMMAND_FILE_CONTENT"
+echo "$COMMAND_FILE_CONTENT"
+echo "$COMMAND_FILE_CONTENT"
+echo "$COMMAND_FILE_CONTENT"
+echo "$COMMAND_FILE_CONTENT"
 
 RESPONSE_FILE_NAME=last-response-from-server.txt
 
