@@ -37,7 +37,7 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 -H 'accept: */*' \
                 -H 'Content-Type: text/plain' \
                 -d @$EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server.bat \
-                -d $COMMAND_FILE_CONTENT \
+                -d "$COMMAND_FILE_CONTENT" \
                 -w "HTTPSTATUS:%{http_code}" \
                 -o $RESPONSE_FILE_PATH)
 
