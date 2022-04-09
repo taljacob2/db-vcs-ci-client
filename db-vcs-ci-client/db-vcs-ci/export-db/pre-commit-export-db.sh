@@ -22,11 +22,6 @@ echo
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
 COMMAND_FILE_CONTENT=`cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server-parameters.bat`
-echo "$COMMAND_FILE_CONTENT"
-echo "$COMMAND_FILE_CONTENT"
-echo "$COMMAND_FILE_CONTENT"
-echo "$COMMAND_FILE_CONTENT"
-echo "$COMMAND_FILE_CONTENT"
 
 RESPONSE_FILE_NAME=last-response-from-server.txt
 
@@ -42,7 +37,7 @@ HTTP_RESPONSE=$(curl -k -X 'POST' \
                 -H 'accept: */*' \
                 -H 'Content-Type: text/plain' \
                 -d @$EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server.bat \
-                -d @$EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server-parameters.bat \
+                -d $COMMAND_FILE_CONTENT \
                 -w "HTTPSTATUS:%{http_code}" \
                 -o $RESPONSE_FILE_PATH)
 
