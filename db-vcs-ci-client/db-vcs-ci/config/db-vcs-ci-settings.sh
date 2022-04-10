@@ -4,9 +4,9 @@
 
 # ---------------------------- Basic Settings ---------------------------------
 
-COMPUTER_NAME="(localdb)"
-INSTANCE_NAME="Local"
-DB_NAME="Klil-Local-Tal"
+COMPUTER_NAME="."
+INSTANCE_NAME=""
+DB_NAME="KlilDBCore"
 EXPORTED_DB_BAK_NAME_IN_CLIENT="db.bak"
 
 # ------------------------ Server Advanced Settings ---------------------------
