@@ -71,6 +71,28 @@ git import-db
 
 You can change the settings of "db-vcs-ci" in the [`db-vcs-ci-settings.sh`](../db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-settings.sh) file.
 
-dfafssfd
+## FAQ
 
-asdfdsf
+### Export Database
+
+### Q:
+AFter exporting, I am receiving the following output:
+```
+Msg 916, Level 14, State 1, Server WBX-VPS-P42\SQLEXPRESS, Line 1
+The server principal "IIS APPPOOL\dbvcsci.example.com" is not able to access the database "KlilDBCore" under the current security context.
+Msg 3013, Level 16, State 1, Server WBX-VPS-P42\SQLEXPRESS, Line 1
+BACKUP DATABASE is terminating abnormally.
+```
+### A:
+The IIS app that runs the "sqlcmd" command doesn't have credentials for managing the database.
+You should create a new "SQL Server Authentication" user in your SSMS, so your IIS app could use it to export the database through "sqlcmd".
+1. Follow this [video](https://www.youtube.com/watch?v=qfuK0V1tlrA) for doing so.
+1. Navigate to [`db-vcs-ci/export-db/cmd-command-for-windows-server.bat`](./db-vcs-ci/export-db/cmd-command-for-windows-server.bat) and add the credentials you have made to the "sqlcmd" command, like the following template:
+   ```
+   -U USERNAME -P PASSWORD
+   ```
+   For example:
+   ```
+   del /f %3\%4 >nul 2>&1
+   sqlcmd -S %1 -U db-vcs-ci -P pass123456 -Q "BACKUP DATABASE [%2] TO DISK = '%3\%4'"
+   ```
