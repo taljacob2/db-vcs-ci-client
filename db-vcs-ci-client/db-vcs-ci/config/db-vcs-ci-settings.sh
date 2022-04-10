@@ -5,7 +5,7 @@
 # ---------------------------- Basic Settings ---------------------------------
 
 COMPUTER_NAME="localhost"
-INSTANCE_NAME="   "
+INSTANCE_NAME="\ "
 DB_NAME="KlilDBCore"
 EXPORTED_DB_BAK_NAME_IN_CLIENT="db.bak"
 
