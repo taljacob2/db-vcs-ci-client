@@ -70,3 +70,7 @@ git import-db
 ### Change Settings
 
 You can change the settings of "db-vcs-ci" in the [`db-vcs-ci-settings.sh`](../db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-settings.sh) file.
+
+dfafssfd
+
+asdfdsf
