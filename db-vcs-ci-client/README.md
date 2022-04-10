@@ -75,7 +75,7 @@ You can change the settings of "db-vcs-ci" in the [`db-vcs-ci-settings.sh`](../d
 
 ### Export Database
 
-### Q:
+#### Q:
 AFter exporting, I am receiving the following output:
 ```
 Msg 916, Level 14, State 1, Server WBX-VPS-P42\SQLEXPRESS, Line 1
@@ -83,7 +83,7 @@ The server principal "IIS APPPOOL\dbvcsci.example.com" is not able to access the
 Msg 3013, Level 16, State 1, Server WBX-VPS-P42\SQLEXPRESS, Line 1
 BACKUP DATABASE is terminating abnormally.
 ```
-### A:
+#### A:
 The IIS app that runs the "sqlcmd" command doesn't have credentials for managing the database.
 You should create a new "SQL Server Authentication" user in your SSMS, so your IIS app could use it to export the database through "sqlcmd".
 1. Follow this [video](https://www.youtube.com/watch?v=qfuK0V1tlrA) for doing so.
