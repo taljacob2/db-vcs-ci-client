@@ -13,4 +13,4 @@ EXPORTED_DB_BAK_NAME_IN_CLIENT="db.bak"
 
 WORKING_DIRECTORY_IN_SERVER="C:\Bak"
 EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY="db.bak"
-SERVER="https://dbvcsci.trustech.co.il/"
+SERVER="https://dbvcsci.trustech.co.il"
