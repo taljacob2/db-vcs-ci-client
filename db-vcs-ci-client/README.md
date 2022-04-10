@@ -88,11 +88,11 @@ The IIS app that runs the "sqlcmd" command doesn't have credentials for managing
 You should create a new "SQL Server Authentication" user in your SSMS, so your IIS app could use it to export the database through "sqlcmd".
 1. Follow this [video](https://www.youtube.com/watch?v=qfuK0V1tlrA) for doing so.
 1. Navigate to [`db-vcs-ci/export-db/cmd-command-for-windows-server.bat`](./db-vcs-ci/export-db/cmd-command-for-windows-server.bat) and add the credentials you have made to the "sqlcmd" command, like the following template:
-   ```
+   ```bat
    -U USERNAME -P PASSWORD
    ```
    For example:
-   ```
+   ```bat
    del /f %3\%4 >nul 2>&1
    sqlcmd -S %1 -U db-vcs-ci -P pass123456 -Q "BACKUP DATABASE [%2] TO DISK = '%3\%4'"
    ```
