@@ -43,6 +43,6 @@ EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY="taljacob-db.bak"
 SERVER="https://dbvcsci.trustech.co.il"
 # SERVER="https://localhost:7179"
 
-USERNAME="WBX-VPS-P42\trustech"
+# USERNAME=""  # For powershell "Get-Credentials" - currently in alpha
 
-PASSWORD="Trust1234!"
+# PASSWORD=""  # For powershell "Get-Credentials" - currently in alpha
