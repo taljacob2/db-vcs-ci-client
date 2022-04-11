@@ -10,7 +10,6 @@ Get-Credential -Credential $credential
 
 echo "-------------------------------------"
 
-# Remove-Item C:\Bak\taljacob-db.bak
 $WORKING_DIRECTORY_IN_SERVER = $args[2]
 $EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY = $args[3]
 Remove-Item $WORKING_DIRECTORY_IN_SERVER\$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY
