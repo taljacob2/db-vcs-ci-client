@@ -2,7 +2,7 @@
 
 
 $username="$args[5]"
-$password="$args[6]"
+$password=$args[6]
 $pass = ConvertTo-SecureString $password -AsPlainText -Force
 
 echo $username
