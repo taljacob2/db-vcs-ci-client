@@ -6,5 +6,5 @@ Get-Credential -Credential $credential
 
 # ---------------------------------- Code -------------------------------------
 
-echo
+echo "---------------------"
 echo hello
