@@ -6,6 +6,8 @@ so you could source-control the backups of your database.
 The default sql commands that come with "db-vcs-ci" extract / import a MSSQL database that uses [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) and is run on *Windows Server 2012 R2*,
 but you can edit the sql commands to be any commands, for any database.
 
+![db-vcs-ci-client-export-db](https://user-images.githubusercontent.com/70590583/162724024-abac3bd3-b005-4453-b58d-c0ba2ba73b81.gif)
+
 ## Installation
 
 Copy the current [`db-vcs-ci-client`](../db-vcs-ci-client/) folder to the root folder of your project, and follow the following instructions:
