@@ -23,6 +23,14 @@ EXPORTED_DB_BAK_NAME_IN_CLIENT="db.bak"
 
 # ------------------------ Server Advanced Settings ---------------------------
 
+: '
+WARNING: Make sure that `WORKING_DIRECTORY_IN_SERVER` was NOT created in the
+         server manually. It should be created by "db-vcs-ci" "export-db" process.
+         
+         OR: You may create `WORKING_DIRECTORY_IN_SERVER` in the server manually,
+             but make sure that the "db-vcs-ci-server" app will have permission to
+             manage it.
+'
 WORKING_DIRECTORY_IN_SERVER="C:\Bak"
 
 : '
