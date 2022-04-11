@@ -17,7 +17,7 @@ For example:
 '
 COMPUTER_NAME_SLASH_INSTANCE_NAME="localhost"
 
-DB_NAME="KlilDBCore"
+DB_NAME="EXAMPLE_DB"
 
 EXPORTED_DB_BAK_NAME_IN_CLIENT="db.bak"
 
@@ -48,7 +48,7 @@ For example:
 '
 EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY="taljacob-db.bak"
 
-SERVER="https://dbvcsci.trustech.co.il"
+SERVER="https://dbvcsci.example.com"
 
 # SERVER="https://localhost:7179"  # For development with "db-vcs-ci-server".
 
