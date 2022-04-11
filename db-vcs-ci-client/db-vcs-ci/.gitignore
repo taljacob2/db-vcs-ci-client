@@ -3,3 +3,6 @@
 
 # The last response from server to a "export-db" or "import-db" request.
 last-response-from-server.txt
+
+# In case the download of "export-db" was aborted.
+ghost_db.bak
