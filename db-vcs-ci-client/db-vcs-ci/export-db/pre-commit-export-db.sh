@@ -21,7 +21,7 @@ echo
 
 URL="$SERVER/api/execute-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER&cmdOrPsOrCustomPathToExecutable=ps&cmdOrPsOrCustomFileExtension=ps"
 
-COMMAND_FILE_CONTENT=`cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server.bat`
+COMMAND_FILE_CONTENT=`cat $EXPORT_DB_FOLDER_PATH/command-for-windows-server.ps1`
 
 RESPONSE_FILE_NAME=last-response-from-server.txt
 RESPONSE_FILE_PATH=$EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
