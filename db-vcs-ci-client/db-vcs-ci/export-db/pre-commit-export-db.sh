@@ -19,7 +19,7 @@ echo $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDA
 
 echo
 
-URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
+URL="$SERVER/api/execute-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER&cmdOrPsOrCustomPathToExecutable=ps&cmdOrPsOrCustomFileExtension=ps"
 
 COMMAND_FILE_CONTENT=`cat $EXPORT_DB_FOLDER_PATH/cmd-command-for-windows-server.bat`
 
