@@ -1,7 +1,7 @@
 # ------------------------------- Credentials  --------------------------------
 
 
-$username="$args"
+$username=$args[5]
 $password="$args"
 $pass = ConvertTo-SecureString $password -AsPlainText -Force
 
