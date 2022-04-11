@@ -1,5 +1,7 @@
 # db-vcs-ci-client
 
+> v0.0.8.9.3-beta
+
 "db-vcs-ci" is a tool that automatically backups your database along your code, and inserts the backups to your commits,
 so you could source-control the backups of your database.
 
@@ -61,7 +63,7 @@ then you can skip the backuping process with:
 git commit --no-verify
 ```
 
-### Import Database
+### Import Database (Currently in ALPHA)
 
 Also, "db-vcs-ci" is able to use a backup `.bak` file you already own, to import it staight into the server's database.
 This can be done by running:
