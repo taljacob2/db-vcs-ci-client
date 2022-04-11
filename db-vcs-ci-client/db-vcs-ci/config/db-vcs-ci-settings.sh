@@ -40,8 +40,8 @@ For example:
 '
 EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY="taljacob-db.bak"
 
-SERVER="https://dbvcsci.trustech.co.il"
-# SERVER="https://localhost:7179"
+# SERVER="https://dbvcsci.trustech.co.il"
+SERVER="https://localhost:7179"
 
 USERNAME="tal"
 
