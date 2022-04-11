@@ -31,11 +31,6 @@ RESPONSE_FILE_PATH=$EXPORT_DB_FOLDER_PATH/$RESPONSE_FILE_NAME
 touch $RESPONSE_FILE_PATH
 truncate -s 0 $RESPONSE_FILE_PATH
 
-# Debug
-echo $USERNAME
-echo $USERNAME
-echo $USERNAME
-
 HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
                 -H 'accept: */*' \
