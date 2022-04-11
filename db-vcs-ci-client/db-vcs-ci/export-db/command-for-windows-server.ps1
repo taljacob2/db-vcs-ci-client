@@ -7,4 +7,6 @@ Get-Credential -Credential $credential
 # ---------------------------------- Code -------------------------------------
 
 echo "-------------------------------------"
-echo hello
+
+del /f $args[2]\$args[3] >nul 2>&1
+sqlcmd -S $args[0] -U db-vcs-ci -P Trust1234! -Q "BACKUP DATABASE [$args[1]] TO DISK = '$args[2]\$args[3]'"
