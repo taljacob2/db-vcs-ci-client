@@ -1,3 +1,2 @@
-powershell
-sleep 4
 echo hello
+PAUSE
