@@ -8,5 +8,5 @@ Get-Credential -Credential $credential
 
 echo "-------------------------------------"
 
-Remove-Item  C:\Bak\taljacob-db.bak >nul 2>&1
+Remove-Item  C:\Bak\taljacob-db.bak | Out-Null
 # sqlcmd -S $args[0] -U db-vcs-ci -P Trust1234! -Q "BACKUP DATABASE [$args[1]] TO DISK = '$args[2]\$args[3]'"
