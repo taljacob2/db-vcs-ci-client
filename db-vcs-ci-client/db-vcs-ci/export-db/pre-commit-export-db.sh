@@ -89,7 +89,7 @@ else
         touch $PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH
 
         # Overwrite our old '.bak' file if exists.
-        # rm $EXPORTED_DB_BAK_PATH_IN_CLIENT
+        # rm -r $EXPORTED_DB_BAK_PATH_IN_CLIENT
         cp -f $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT $EXPORTED_DB_BAK_PATH_IN_CLIENT
 
         echo $LOG_TITLE "Adding The '.bak' File To Your Index..."
