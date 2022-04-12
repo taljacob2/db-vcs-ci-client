@@ -1,0 +1,1 @@
+sqlcmd -S %1 -Q "RESTORE DATABASE [%2] FROM DISK = '%3\%4'"
