@@ -107,3 +107,38 @@ You should create a new "SQL Server Authentication" user in your SSMS, so your I
    del /f %3\%4 >nul 2>&1
    sqlcmd -S %1 -U db-vcs-ci -P pass123456 -Q "BACKUP DATABASE [%2] TO DISK = '%3\%4'"
    ```
+   
+#### Q:
+After exporting, I am receiving the following output:
+```
+###############################################################################
+### pre-commit-export-db.sh ###: Attempting To Export DB From Server...
+### pre-commit-export-db.sh ###: Attempting To Create '.bak' File In The Server...
+########################## OPENED OUTPUT FROM SERVER ##########################
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   487    0   325  100   162     37     18  0:00:09  0:00:08  0:00:01    84
+curl: (92) HTTP/2 stream 0 was not closed cleanly: INTERNAL_ERROR (err 2)
+
+
+C:\Windows\System32>del /f C:\Bak\taljacob-db.bak  1>nul 2>&1
+
+C:\Windows\System32>sqlcmd -S (localdb)\Local -Q "BACKUP DATABASE [Klil-Local-Tal] TO DISK = 'C:\Bak\taljacob-db.bak'"
+Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : Unable to complete login process due to delay in opening server connection.
+
+########################## CLOSED OUTPUT FROM SERVER ##########################
+### pre-commit-export-db.sh ###: Encountered An Error. HTTP_STATUS: 400
+###############################################################################
+```
+As you can see, the error is the line of:
+```
+Sqlcmd: Error: Microsoft ODBC Driver 17 for SQL Server : Unable to complete login process due to delay in opening server connection.
+```
+
+#### A:
+There may be an interruption in the connection to the server during the execution.
+You can re-execute the "export-db" process by commiting again in `--amend --no-edit` mode:
+```
+git commit --amend --no-edit
+```
