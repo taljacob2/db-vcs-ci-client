@@ -51,8 +51,6 @@ else
     EXPORTED_DB_BAK_PATH_IN_CLIENT="$DB_VCS_CI_FOLDER_PATH/$EXPORTED_DB_BAK_NAME_IN_CLIENT"
     IMPORTED_DB_BAK_PATH_IN_CLIENT=$EXPORTED_DB_BAK_PATH_IN_CLIENT
 
-    FILE_CONTENT=`cat $IMPORTED_DB_BAK_PATH_IN_CLIENT`
-
     : '
     Upload to a "ghost" `.bak`, so if the response returns with an error it
     won`t affect the good `.bak` the server already has.
@@ -65,7 +63,7 @@ else
                     $URL \
                     -H 'accept: */*' \
                     -H 'Content-Type: application/octet-stream' \
-                    -d "$FILE_CONTENT" \
+                    --data-binary @$IMPORTED_DB_BAK_PATH_IN_CLIENT \
                     -w "HTTPSTATUS:%{http_code}")
 
     HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
