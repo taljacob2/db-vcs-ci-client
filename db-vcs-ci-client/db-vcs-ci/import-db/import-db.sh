@@ -48,12 +48,15 @@ else
 
     echo
 
-    URL="$SERVER/api/download-file?filePathInServer=$WORKING_DIRECTORY_IN_SERVER/$EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY&mimeType=application/octet-stream"
+    URL="$SERVER/api/upload-file?workingDirectory=$WORKING_DIRECTORY_IN_SERVER&fileNameToBeInServerWorkingDirectory=$IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY"
 
     EXPORTED_DB_BAK_PATH_IN_CLIENT="$DB_VCS_CI_FOLDER_PATH/$EXPORTED_DB_BAK_NAME_IN_CLIENT"
+    IMPORTED_DB_BAK_PATH_IN_CLIENT=$EXPORTED_DB_BAK_PATH_IN_CLIENT
 
-    # Download to a "ghost" '.bak', so if the response returns with an error it
-    # won't affect the good '.bak' we already have.
+    : '
+    Upload to a "ghost" `.bak`, so if the response returns with an error it
+    won`t affect the good `.bak` the server already has.
+    '
     GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT="$DB_VCS_CI_FOLDER_PATH/ghost_$EXPORTED_DB_BAK_NAME_IN_CLIENT"
 
     HTTP_RESPONSE=$(curl -k -X 'GET' \
