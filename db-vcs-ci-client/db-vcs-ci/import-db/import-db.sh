@@ -13,7 +13,7 @@ echo $LOG_BOUNDARY
 
 echo $LOG_TITLE "Attempting To Import DB To Server..."
 
-echo $LOG_TITLE "Deleting The Last Imported '.bak' File To Server (If Exists)..."
+echo $LOG_TITLE "Deleting The Last '.bak' File Imported To Server (If Exists)..."
 
 echo $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
@@ -43,6 +43,8 @@ else
     echo $LOG_TITLE "Successfully Executed Command In The Server!"
     
     echo $LOG_TITLE "Attempting To Upload '.bak' File To Server..."
+
+    echo $LOG_TITLE "Uploading Ghost '.bak' File To Server..."
 
     echo $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
@@ -97,8 +99,34 @@ else
     #     fi        
     fi
 
-    # # Remove "ghost" '.bak'
-    # rm $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT
+    # Remove "ghost" '.bak'
+
+    echo $LOG_TITLE "Deleting The Ghost '.bak' File Imported To Server..."
+
+    echo $SERVER_LOG_HALF_BOUNDARY OPENED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
+
+    echo
+
+    URL="$SERVER/api/execute-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER&cmdOrPsOrCustomPathToExecutable=cmd&cmdOrPsOrCustomFileExtension=cmd"
+
+    FILE_CONTENT=`cat $IMPORT_DB_FOLDER_PATH/command1-for-windows-server.bat`
+
+    HTTP_RESPONSE=$(curl -k -X 'POST' \
+                    $URL \
+                    -H 'accept: */*' \
+                    -H 'Content-Type: text/plain' \
+                    -d "$FILE_CONTENT" \
+                    -d "ARGS[]=$WORKING_DIRECTORY_IN_SERVER&ARGS[]=$IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY" \
+                    -w "HTTPSTATUS:%{http_code}")
+
+    HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
+
+    echo
+
+    echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
+
+
+    rm $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT
 fi
 
 echo $LOG_BOUNDARY
