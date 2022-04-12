@@ -116,7 +116,7 @@ else
                     -H 'accept: */*' \
                     -H 'Content-Type: text/plain' \
                     -d "$FILE_CONTENT" \
-                    -d "ARGS[]=$WORKING_DIRECTORY_IN_SERVER&ARGS[]=$IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY" \
+                    -d "ARGS[]=$WORKING_DIRECTORY_IN_SERVER&ARGS[]=$GHOST_IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY" \
                     -w "HTTPSTATUS:%{http_code}")
 
     HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
@@ -125,8 +125,11 @@ else
 
     echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
-
-    rm $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT
+    if [[ "$HTTP_STATUS" -ne 200 ]] ; then
+        echo $LOG_TITLE $ERROR_MESSAGE HTTP_STATUS: $HTTP_STATUS
+    else
+        echo $LOG_TITLE "Successfully Deleted Ghost '.bak' File Imported To Server!"
+    fi
 fi
 
 echo $LOG_BOUNDARY
