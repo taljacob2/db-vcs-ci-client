@@ -21,13 +21,13 @@ echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
-COMMAND_FILE_CONTENT=`cat $IMPORT_DB_FOLDER_PATH/cmd-command1-for-windows-server.bat`
+FILE_CONTENT=`cat $IMPORT_DB_FOLDER_PATH/cmd-command1-for-windows-server.bat`
 
 HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
                 -H 'accept: */*' \
                 -H 'Content-Type: text/plain' \
-                -d "$COMMAND_FILE_CONTENT" \
+                -d "$FILE_CONTENT" \
                 -d "ARGS[]=$WORKING_DIRECTORY_IN_SERVER&ARGS[]=$IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY" \
                 -w "HTTPSTATUS:%{http_code}")
 
@@ -48,21 +48,25 @@ else
 
     echo
 
-    URL="$SERVER/api/upload-file?workingDirectory=$WORKING_DIRECTORY_IN_SERVER&fileNameToBeInServerWorkingDirectory=$IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY"
-
     EXPORTED_DB_BAK_PATH_IN_CLIENT="$DB_VCS_CI_FOLDER_PATH/$EXPORTED_DB_BAK_NAME_IN_CLIENT"
     IMPORTED_DB_BAK_PATH_IN_CLIENT=$EXPORTED_DB_BAK_PATH_IN_CLIENT
+
+    FILE_CONTENT=`cat $IMPORTED_DB_BAK_PATH_IN_CLIENT`
 
     : '
     Upload to a "ghost" `.bak`, so if the response returns with an error it
     won`t affect the good `.bak` the server already has.
     '
-    GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT="$DB_VCS_CI_FOLDER_PATH/ghost_$EXPORTED_DB_BAK_NAME_IN_CLIENT"
+    GHOST_IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY="ghost_$IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY"
 
-    HTTP_RESPONSE=$(curl -k -X 'GET' \
-                    -H 'accept: */*' \
+    URL="$SERVER/api/upload-file?workingDirectory=$WORKING_DIRECTORY_IN_SERVER&fileNameToBeInServerWorkingDirectory=$GHOST_IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY"
+
+    HTTP_RESPONSE=$(curl -k -X 'POST' \
                     $URL \
-                    -o $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT \
+                    -H 'accept: */*' \
+                    -H 'Content-Type: text/plain' \
+                    -d "$FILE_CONTENT" \
+                    -d "ARGS[]=$WORKING_DIRECTORY_IN_SERVER&ARGS[]=$IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY" \
                     -w "HTTPSTATUS:%{http_code}")
 
     HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
