@@ -64,9 +64,8 @@ else
     HTTP_RESPONSE=$(curl -k -X 'POST' \
                     $URL \
                     -H 'accept: */*' \
-                    -H 'Content-Type: text/plain' \
+                    -H 'Content-Type: application/octet-stream' \
                     -d "$FILE_CONTENT" \
-                    -d "ARGS[]=$WORKING_DIRECTORY_IN_SERVER&ARGS[]=$IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY" \
                     -w "HTTPSTATUS:%{http_code}")
 
     HTTP_STATUS=$(echo $HTTP_RESPONSE | tr -d '\n' | sed -E 's/.*HTTPSTATUS:([0-9]{3})$/\1/')
@@ -75,33 +74,33 @@ else
 
     echo $SERVER_LOG_HALF_BOUNDARY CLOSED OUTPUT FROM SERVER $SERVER_LOG_HALF_BOUNDARY
 
-    if [[ "$HTTP_STATUS" -ne 200 ]] ; then
+    if [[ "$HTTP_STATUS" -ne 201 ]] ; then
         echo $LOG_TITLE $ERROR_MESSAGE HTTP_STATUS: $HTTP_STATUS
-    else
-        echo $LOG_TITLE "Successfully Downloaded '.bak' File!"
+    # else
+    #     echo $LOG_TITLE "Successfully Downloaded '.bak' File!"
 
-        # Create a dummy file for indication that the "pre-commit" process has finished successfully.
-        # This may be useful for the "post-commit" hook.
-        touch $PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH
+    #     # Create a dummy file for indication that the "pre-commit" process has finished successfully.
+    #     # This may be useful for the "post-commit" hook.
+    #     touch $PRE_COMMIT_SUCCESS_DUMMY_FILE_PATH
 
-        # Overwrite our old '.bak' file if exists.
-        # rm $EXPORTED_DB_BAK_PATH_IN_CLIENT
-        cp -f $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT $EXPORTED_DB_BAK_PATH_IN_CLIENT
+    #     # Overwrite our old '.bak' file if exists.
+    #     # rm $EXPORTED_DB_BAK_PATH_IN_CLIENT
+    #     cp -f $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT $EXPORTED_DB_BAK_PATH_IN_CLIENT
 
-        echo $LOG_TITLE "Adding The '.bak' File To Your Index..."
+    #     echo $LOG_TITLE "Adding The '.bak' File To Your Index..."
 
-        RESULT=$?
-        git add $EXPORTED_DB_BAK_PATH_IN_CLIENT
-        if [ $RESULT -ne 0 ]
-            then
-            echo $ERROR_MESSAGE
-        else        
-            echo $LOG_TITLE "Successfully Added The '.bak' File To Your Index!"
-        fi        
+    #     RESULT=$?
+    #     git add $EXPORTED_DB_BAK_PATH_IN_CLIENT
+    #     if [ $RESULT -ne 0 ]
+    #         then
+    #         echo $ERROR_MESSAGE
+    #     else        
+    #         echo $LOG_TITLE "Successfully Added The '.bak' File To Your Index!"
+    #     fi        
     fi
 
-    # Remove "ghost" '.bak'
-    rm $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT
+    # # Remove "ghost" '.bak'
+    # rm $GHOST_EXPORTED_DB_BAK_PATH_IN_CLIENT
 fi
 
 echo $LOG_BOUNDARY
