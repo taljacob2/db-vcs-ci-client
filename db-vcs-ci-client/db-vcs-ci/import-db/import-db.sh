@@ -21,7 +21,7 @@ echo
 
 URL="$SERVER/api/execute-cmd-command?workingDirectory=$WORKING_DIRECTORY_IN_SERVER"
 
-FILE_CONTENT=`cat $IMPORT_DB_FOLDER_PATH/cmd-command1-for-windows-server.bat`
+FILE_CONTENT=`cat $IMPORT_DB_FOLDER_PATH/command1-for-windows-server.bat`
 
 HTTP_RESPONSE=$(curl -k -X 'POST' \
                 $URL \
