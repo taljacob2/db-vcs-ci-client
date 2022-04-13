@@ -8,7 +8,7 @@
 For example:
 
 - "(localdb)\\Local"
-- "(localdb)\\MSSQLDBLocal"
+- "(localdb)\\MSSQLLocalDB"
 - localhost:
   - "."
   - ".\\"
