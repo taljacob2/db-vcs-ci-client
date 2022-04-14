@@ -1,2 +1,5 @@
 # Override our database when having conflicts.
 *.bak merge=keepTheirs
+
+# Keep the own settings on merge.
+db-vcs-ci-settings.sh merge=keepMine

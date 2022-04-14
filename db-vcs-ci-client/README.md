@@ -1,6 +1,6 @@
 # db-vcs-ci-client
 
-> v0.0.8.9.3.1-beta
+> v0.0.8.9.3.2-beta
 
 "db-vcs-ci" is a tool that automatically backups your database along your code, and inserts the backups to your commits,
 so you could source-control the backups of your database.
@@ -45,7 +45,7 @@ git commit
 1. And finally adds it to your commit.
 
 So the database you are working on will be automatically backed-up to your source-code.
-The default settings set the `.bak` file to be placed at: [db-vcs-ci-client/db-vcs-ci/db.bak](../db-vcs-ci-client/db-vcs-ci/db.bak).
+The default settings set the `.bak` file to be placed at [db-vcs-ci-client/db-vcs-ci/db.bak](../db-vcs-ci-client/db-vcs-ci/db.bak).
 You can change the settings [here](#change-settings).
 
 #### Screenshot Example
