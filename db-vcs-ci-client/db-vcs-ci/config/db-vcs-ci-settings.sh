@@ -8,16 +8,16 @@
 For example:
 
 - "(localdb)\\Local"
-- "(localdb)\\MSSQLLocalDB"
+- "(localdb)\\MSSQLDBLocal"
 - localhost:
   - "."
   - ".\\"
   - "localhost"
   - "localhost\\"
 '
-COMPUTER_NAME_SLASH_INSTANCE_NAME="localhost"
+COMPUTER_NAME_SLASH_INSTANCE_NAME="(localdb)\\Local"
 
-DB_NAME="EXAMPLE_DB"
+DB_NAME="Klil-Local-Tal"
 
 EXPORTED_DB_BAK_NAME_IN_CLIENT="db.bak"
 
@@ -46,11 +46,13 @@ For example:
 - "johndoe-db.bak"
 - "richardroe-db.bak"
 '
-EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY="taljacob-db.bak"
+EXPORTED_DB_BAK_NAME_IN_SERVER_WORKING_D1233IRECTORY1233="taljacob-db.bak"
 
-SERVER="https://dbvcsci.example.com"
+IMPORTED_DB_BAK_NAME_IN_SERVER_WORKING_DIRECTORY123="imported-db.bak"
 
-# SERVER="https://localhost:7179"  # For development with "db-vcs-ci-server".
+# SERVER="https://dbvcsci.example.com"
+
+SERVER="https://localhost:7179"  # For development with "db-vcs-ci-server".
 
 # USERNAME=""  # For powershell "Get-Credentials" - currently in alpha
 
