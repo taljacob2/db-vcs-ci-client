@@ -1,6 +1,6 @@
-# db-vcs-ci-client
-
 > v0.0.8.9.3.4-beta
+
+# db-vcs-ci-client
 
 "db-vcs-ci" is a tool that automatically backups your database along your code, and inserts the backups to your commits,
 so you could source-control the backups of your database.
