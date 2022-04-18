@@ -92,6 +92,17 @@ git import-db
 
 You can change the settings of "db-vcs-ci" in the [`db-vcs-ci-settings.sh`](../db-vcs-ci-client/db-vcs-ci/config/db-vcs-ci-settings.sh) file.
 
+## Check For Updates
+
+In case you already have an existing version of "db-vcs-ci-client" and you want to update to the newest version available,
+you can merge the newest version of this repository to your existing `db-vcs-ci-client` folder:
+```
+git checkout master
+git remote add -f db-vcs-ci-client https://github.com/taljacob2/db-vcs-ci-client
+git subtree merge -P db-vcs-ci-client db-vcs-ci-client/master --squash
+git remote remove db-vcs-ci-client
+```
+
 ## FAQ
 
 ### Export Database
