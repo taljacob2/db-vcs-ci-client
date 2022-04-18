@@ -1,6 +1,6 @@
 # db-vcs-ci-client
 
-> v0.0.8.9.3.3-beta
+> v0.0.8.9.3.4-beta
 
 "db-vcs-ci" is a tool that automatically backups your database along your code, and inserts the backups to your commits,
 so you could source-control the backups of your database.
@@ -14,12 +14,9 @@ but you can edit the sql commands to be any commands, for any database.
 
 ### Clone This Repository As A Subtree In Your Project
 
-Merge this repository to a folder called `db-vcs-ci-client` at the root folder of your project:
+Merge this repository to a new folder called `db-vcs-ci-client` at the root folder of your project:
 ```
-git checkout master
-git remote add -f db-vcs-ci-client https://github.com/taljacob2/db-vcs-ci-client
-git subtree add -P db-vcs-ci-client db-vcs-ci-client/master --squash
-git remote remove db-vcs-ci-client
+git subtree add -P db-vcs-ci-client https://github.com/taljacob2/db-vcs-ci-client master --squash
 ```
 
 ### Configure `db-vcs-ci-client`
@@ -97,10 +94,7 @@ You can change the settings of "db-vcs-ci" in the [`db-vcs-ci-settings.sh`](../d
 In case you already have an existing version of "db-vcs-ci-client" and you want to update to the newest version available,
 you can merge the newest version of this repository to your existing `db-vcs-ci-client` folder:
 ```
-git checkout master
-git remote add -f db-vcs-ci-client https://github.com/taljacob2/db-vcs-ci-client
-git subtree merge -P db-vcs-ci-client db-vcs-ci-client/master --squash
-git remote remove db-vcs-ci-client
+git subtree pull -P db-vcs-ci-client https://github.com/taljacob2/db-vcs-ci-client master --squash
 ```
 
 ## FAQ
